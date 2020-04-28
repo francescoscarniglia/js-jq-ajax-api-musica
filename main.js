@@ -11,22 +11,19 @@ var contentMex = $('.cds-container');
 var source = $('#cd-template').html();
 var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
 
-
   $.ajax({
     url: apiBo,
     method: 'GET',
     success: function(data){
 
       var singles = data.response;
-      console.log(singles);
+    //  console.log(singles);
       if(singles.length > 0){
         for(var i= 0; i < singles.length; i++) {
-          console.log(singles[i]);
+          //console.log(singles[i]);
 
           var template = Handlebars.compile(source);
-
           var html = template(singles[i]);
-
           contentMex.append(html);
         }
       }
@@ -36,7 +33,5 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
     }
 
   });
-
-
 
 });//ready
