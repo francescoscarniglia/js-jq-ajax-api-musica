@@ -17,8 +17,7 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
     url: apiBo,
     method: 'GET',
     success: function(data){
-
-      var singles = data.response;
+    var singles = data.response;
     //  console.log(singles);
       if(singles.length > 0){
         for(var i= 0; i < singles.length; i++) {
@@ -36,14 +35,13 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
 
   });
 
-  $( "select" )
-    .change(function() {
-
-      $( "select option:selected" ).each(function() {
-
+  $( "select" ).change(function() {
+    $( "select option:selected" ).each(function() {
         var thisSingles = $(this).val();
         if(thisSingles == 'pop'){
+          change();
           console.log('Hai scelto: pop');
+          console.log();
         } else if(thisSingles == 'rock') {
           console.log('Hai scelto: rock');
         } else if(thisSingles == 'metal'){
@@ -52,8 +50,6 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
           console.log('hai sctelto jazz');
         }
       });
-
     })
-
 
 });//ready
