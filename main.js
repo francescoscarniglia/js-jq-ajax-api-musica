@@ -6,7 +6,9 @@
 // Bonus: Creare una select con i seguenti generi: pop, rock, metal e jazz. In base a cosa scegliamo nella select vedremo i corrispondenti cd.
 //Endpoint API
 //https://flynn.boolean.careers/exercises/api/array/music
+
 $(document).ready(function() {
+
 var contentMex = $('.cds-container');
 var source = $('#cd-template').html();
 var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
@@ -33,5 +35,15 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
     }
 
   });
+
+  $( "select" )
+    .change(function() {
+      
+      $( "select option:selected" ).each(function() {
+        console.log('ciao');
+      });
+
+    })
+
 
 });//ready
