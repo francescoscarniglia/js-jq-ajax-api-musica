@@ -40,7 +40,17 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
     .change(function() {
 
       $( "select option:selected" ).each(function() {
-        console.log('Hai scelto:', '', $( this).val());
+
+        var thisSingles = $(this).val();
+        if(thisSingles == 'pop'){
+          console.log('Hai scelto: pop');
+        } else if(thisSingles == 'rock') {
+          console.log('Hai scelto: rock');
+        } else if(thisSingles == 'metal'){
+          console.log('Hai scelto metal');
+        } else if(thisSingles == 'jazz') {
+          console.log('hai sctelto jazz');
+        }
       });
 
     })
