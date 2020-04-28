@@ -38,9 +38,9 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
 
   $( "select" )
     .change(function() {
-      
+
       $( "select option:selected" ).each(function() {
-        console.log('ciao');
+        console.log('ciao', $( this).val());
       });
 
     })
