@@ -11,6 +11,7 @@ $(document).ready(function() {
 
 var contentMex = $('.cds-container');
 var source = $('#cd-template').html();
+var template = Handlebars.compile(source);
 var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
 
   $.ajax({
@@ -19,37 +20,41 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
     success: function(data){
     var singles = data.response;
     //  console.log(singles);
-      if(singles.length > 0){
-        for(var i= 0; i < singles.length; i++) {
-          //console.log(singles[i]);
 
-          var template = Handlebars.compile(source);
-          var html = template(singles[i]);
-          contentMex.append(html);
+        for(var i= 0; i < singles.length; i++) {
+        var thisCd = singles[i];
+
+          var context = {
+            poster :thisCd.poster,
+            title : thisCd.title,
+            author : thisCd.author,
+            year : thisCd.year,
+            genres : thisCd.genre.toLowerCase()
+          };
+
+          var html = template(context);
+          $('.cds-container').append(html)
+
         }
-      }
-    },
+  },
     error: function(){
       console.log('error');
     }
 
   });
 
-  $( "select" ).change(function() {
-    $( "select option:selected" ).each(function() {
-        var thisSingles = $(this).val();
-        if(thisSingles == 'pop'){
-          change();
-          console.log('Hai scelto: pop');
-          console.log();
-        } else if(thisSingles == 'rock') {
-          console.log('Hai scelto: rock');
-        } else if(thisSingles == 'metal'){
-          console.log('Hai scelto metal');
-        } else if(thisSingles == 'jazz') {
-          console.log('hai sctelto jazz');
-        }
-      });
-    });
+  // select genres
+  $('#genres').change(function (){
+    console.log('Change', $(this).val());
+    var genre = $(this).val();
+
+    if(genre === 'all') {
+      $('.cd').show();
+    } else {
+      $('.cd').hide();
+      $('.cd' + genre).show();
+    }
+  });
+
 
 });//ready
