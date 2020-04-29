@@ -28,12 +28,13 @@
       </div><!-- full -->
 
         <div class="cds-container container">
+        </div>
 
 
         <script id="cd-template" type="text/x-handlebars-template">
 
           <!-- Disco ad esempio -->
-          <div class="cd">
+          <div class="cd {{genres}}">
             <img src="{{poster}}" alt="img">
             <h3>{{title}}</h3>
             <span class="author">
@@ -42,9 +43,7 @@
             <span class="year">
                 {{year}}
             </span>
-            <span class="year">
-                {{genre}}
-            </span>
+
           </div>
 
         </script>

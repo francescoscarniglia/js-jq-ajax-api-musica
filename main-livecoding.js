@@ -44,7 +44,7 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
   });
 
   // select genres
-  $('#genres').change(function (){
+  $('#genres').change(function(){
     console.log('Change', $(this).val());
     var genre = $(this).val();
 
@@ -52,7 +52,7 @@ var apiBo = 'https://flynn.boolean.careers/exercises/api/array/music';
       $('.cd').show();
     } else {
       $('.cd').hide();
-      $('.cd' + genre).show();
+      $('.cd.' + genre).show();
     }
   });
 
